@@ -1,6 +1,11 @@
 function fetchBooks() {
-  // To pass the tests, don't forget to return your fetch!
-  
+  // Make a fetch request to the Game of Thrones API
+  return fetch("https://anapioficeandfire.com/api/books")
+    .then((response) => response.json())
+    .then((json) => {
+      // Call renderBooks() with the JSON-ified data
+      renderBooks(json);
+    });
 }
 
 function renderBooks(books) {
@@ -13,5 +18,8 @@ function renderBooks(books) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-  fetchBooks();
+  // Call fetchBooks() and ensure it returns the fetch request
+  const fetchRequest = fetchBooks();
+  // This is not required for the lab, but it ensures that you return the fetch request
+  return fetchRequest;
 });
